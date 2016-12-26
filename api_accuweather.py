@@ -15,10 +15,17 @@
 """
    API calls to the weather forecast services (from AccuWeather).
 """
+import sys
 import requests
+
 
 # This should be your own key, created through: http://developer.accuweather.com/
 API_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+
+
+class AccuWeatherAPIError(Exception):
+    """Base class for exceptions in this module."""
+    pass
 
 
 #
@@ -33,10 +40,16 @@ def get_location_key(place_name):
 
     params = {'apikey': API_KEY, 'q': place_name}
     r = requests.get('http://dataservice.accuweather.com/locations/v1/search', params=params)
-    results = r.json()
+    if r.status_code != requests.codes.ok:
+        print("Error querying AccuWeather's API. Did you provide the right API_KEY?", file=sys.stderr)
+        results = r.json()
+        print("Error message was: {}".format(results["Message"]), file=sys.stderr)
+        raise AccuWeatherAPIError()
 
+    results = r.json()
     if len(results) == 0:
-        return None
+        print("No location found with the name: '{}'".format(place_name), file=sys.stderr)
+        raise AccuWeatherAPIError()
 
     return results[0]["Key"]
 
@@ -101,3 +114,4 @@ def get_forecasts(place_name):
     """ Returns the weather forecast for the place named 'placeName' """
 
     return get_forecasts_by_key(get_location_key(place_name))
+
