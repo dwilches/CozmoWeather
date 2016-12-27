@@ -66,6 +66,9 @@ def fix_forecast_abbrevs(forecast):
 
 def get_icon_for_forecast(forecast):
     ''' Given the keywords in the forecast text, find a suitable icon '''
+
+    # Search for the first keyword that matches the forecast text (case insensitive)
+    forecast = forecast.lower()
     if "cloud" in forecast:
         return "images/cloudy.png"
     elif "sunny" in forecast:
