@@ -4,6 +4,31 @@ This program connects to AccuWeather's API and downloads the weather forecast fo
 Then, the forecast is sent to a Cozmo robot that reads it out loud, while showing in its face an image
 representing the weather conditions.
 
+# Getting started
+
+## Dependencies
+
+Install the Python package 'requests' by issuing this command:
+
+    pip3 install requests
+
+
+
+
+## Input your AccuWeather key
+
+Open the file `api_accuweather.py` and put your AccuWeather application key in this line:
+
+    API_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+
+For example, if your key is `54FECBEF45ECBE4FE12354FECBE5ECBE` then the line should read:
+
+    API_KEY = '54FECBEF45ECBE4FE12354FECBE5ECBE'
+
+You can get a free key from AccuWeather in this url: http://developer.accuweather.com/
+
+That should be all, now run the file `main.py` while Cozmo is in the SDK mode.
+
 # License:
 
 ```html
