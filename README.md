@@ -4,6 +4,8 @@ This program connects to AccuWeather's API and downloads the weather forecast fo
 Then, the forecast is sent to a Cozmo robot that reads it out loud, while showing in its face an image
 representing the weather conditions.
 
+[![Cozmo Weather](http://img.youtube.com/vi/cwfPXQNXe5k/0.jpg)](http://www.youtube.com/watch?v=cwfPXQNXe5k)
+
 # Getting started
 
 ## Dependencies
