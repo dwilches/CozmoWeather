@@ -31,6 +31,12 @@ You can get a free key from AccuWeather in this url: http://developer.accuweathe
 
 That should be all, now run the file `main.py` while Cozmo is in the SDK mode.
 
+
+# Cozmo SDK
+
+Notice CozmoWeather depends on Cozmo's SDK from Anki. There are installation instructions in their website:
+https://developer.anki.com/blog/learn/tutorial/getting-started-with-the-cozmo-sdk/index.html
+
 # License:
 
 ```html
